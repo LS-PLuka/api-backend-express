@@ -1,0 +1,22 @@
+{
+  "name": "api-backend-express",
+  "version": "1.0.0",
+  "description": "Express, Prisma e Zod",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "prisma",
+    "zod",
+    "mysql"
+  ],
+  "author": "Pedro Luka",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

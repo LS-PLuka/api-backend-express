@@ -1,41 +1,20 @@
 import express from 'express';
 
+// Importando Controllers
+import { createSupplierController } from '../controllers/supplier/createSupplierController';
+import { getByIdSupplierController } from '../controllers/supplier/getByIdSupplierController';
+import { editSupplierController } from '../controllers/supplier/editSupplierController';
+import { deleteSupplierController } from '../controllers/supplier/deleteSupplierController';
+import { listSupplierController } from '../controllers/supplier/listSupplierController';
+
+// Criando os Routers
 const router = express.Router();
 
-// CRUD
-router.post('/', (req, res) => {
-    const dados = req.body;
-    console.log(dados);
-
-    res.json({
-        message: 'Fornecedor criado com sucesso!',
-        supplier: dados
-    })
-})
-
-router.get('/:id', (req, res) => {
-    const { id } = req.params;
-    res.json({ message: `Fornecedor ${id} encontrado com sucesso!` });
-})
-
-router.put('/:id', (req, res) => {
-    const dados = req.body;
-    const { id } = req.params;
-
-    res.json({
-        message: `Fornecedor ${id} atualizado com sucesso!`,
-        supplier: dados
-    })
-})
-
-router.delete('/:id', (req, res) => {
-    const { id } = req.params;
-    res.json({ message: `Fornecedor ${id} deletado com sucesso!` });
-})
-
-router.get('/', (req, res) => {
-    res.json({ message: 'Lista de fornecedores' });
-})
+router.post('/', createSupplierController)
+router.get('/:id', getByIdSupplierController)
+router.put('/:id', editSupplierController)
+router.delete('/:id', deleteSupplierController)
+router.get('/', listSupplierController)
 
 // Exportando o Router
 export default router;

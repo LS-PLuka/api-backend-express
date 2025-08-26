@@ -1,11 +1,11 @@
 import express from 'express';
 
 // Importando Controllers
-import { createUserController } from '../controllers/user/createUserController'
-import { getByIdUserController } from '../controllers/user/getByIdUserController'
-import { editUserController } from '../controllers/user/editUserController';
-import { deleteUserController } from '../controllers/user/deleteUserController';
-import { listUserController } from '../controllers/user/listUserController';
+import { createUserController } from '../controllers/user/createUserController.js'
+import { getByIdUserController } from '../controllers/user/getByIdUserController.js'
+import { editUserController } from '../controllers/user/editUserController.js';
+import { deleteUserController } from '../controllers/user/deleteUserController.js';
+import { listUserController } from '../controllers/user/listUserController.js';
 
 // Criando os Routers
 const router = express.Router();

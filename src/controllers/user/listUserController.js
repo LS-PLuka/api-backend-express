@@ -1,3 +1,10 @@
-export const listUserController = (req, res) => {
-  res.json({message: 'Lista de usuários'})
+import { list } from "../../models/userModel.js"
+
+export const listUserController = async (req, res) => {
+  const result = await list()
+
+  res.json({
+    message: 'Lista de usuários',
+    users: result
+  })
 }

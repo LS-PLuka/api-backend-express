@@ -1,4 +1,12 @@
-export const deleteUserController = (req, res) => {
+import { remove } from "../../models/userModel.js"
+
+export const deleteUserController = async (req, res) => {
   const { id } = req.params
-  res.json({message: `Usuário ${id} deletado com sucesso!`})
+
+  const result = await remove(+id)
+
+  res.json({
+    message: `Usuário ${id} deletado com sucesso!`,
+    user: result
+  })
 }

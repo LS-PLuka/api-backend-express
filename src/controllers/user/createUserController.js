@@ -1,9 +1,12 @@
-export const createUserController = (req, res) => {
-  const dados = req.body
-  console.log(dados)
+import { create } from "../../models/userModel.js"
+
+export const createUserController = async (req, res) => {
+  const user = req.body
+
+  const result = await create(user)
 
   res.json({
     message: 'Usuário criado com sucesso!',
-    profile: dados
+    user: result
   })
 }

@@ -1,9 +1,12 @@
-export const editProductController = (req, res) => {
-  const dados = req.body
-  const { id } = req.params
+import { update } from "../../models/productModel.js";
 
-  res.json({
-    message: `Produto ${id} atualizado com sucesso!`,
-    product: dados
-  })
+export async function editProductController(req, res) {
+    const id = req.params.id;
+    const dados = req.body;
+
+    const result = await update(id, dados);
+    res.json({
+        message: "Produto atualizado com sucesso",
+        product: result
+    })
 }

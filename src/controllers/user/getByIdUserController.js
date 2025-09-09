@@ -1,4 +1,11 @@
+import { getById } from "../../models/userModel.js"
+
 export const getByIdUserController = (req, res) => {
   const { id } = req.params
-  res.json({message: `Usuário ${id} encontrado com sucesso!`})
+
+  const result = getById(+id)
+  res.json({
+    message: `Usuário ${id} encontrado com sucesso!`,
+    data: result
+  })
 }

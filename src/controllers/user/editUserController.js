@@ -1,9 +1,13 @@
-export const editUserController = (req, res) => {
-  const dados = req.body
-  const { id } = req.params
+import { update } from '../../models/userModel.js'
 
-  res.json({
-    message: `Usuário ${id} atualizado com sucesso!`,
-    profile: dados
-  })
+export const editUserController = async (req,res) => {
+    const id = req.params.id
+    const profile = req.body
+
+    const result = await update(+id, profile)
+
+    res.json({ 
+        message: 'Usuário editado com sucesso!',
+        profile: result
+    })
 }

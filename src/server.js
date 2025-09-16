@@ -2,9 +2,13 @@
 import express from 'express'
 import cors from 'cors'
 
+// Testes de Middlewares
+import { logger } from './middlewares/logger.js'
+
 const app = express()
 const port = 5000
 
+app.use(logger)
 app.use(cors())
 app.use(express.json())
 
